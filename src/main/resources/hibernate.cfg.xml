@@ -1,0 +1,37 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+    "-//Hibernate/Hibernate Configuration DTD//EN"
+    "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+  <session-factory>
+    <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+    <property name="hibernate.connection.url">
+    	<![CDATA[
+    		jdbc:mysql://localhost:3306/hibernate?useSSL=false&useUnicode=yes&characterEncoding=UTF-8
+    	]]>
+    </property>
+    <property name="hibernate.connection.username">eigyo</property>
+    <property name="hibernate.connection.password">123456</property>
+<!--     <property name="hibernate.default_schema">PUBLIC</property> -->
+    <property name="connection.pool_size">1</property>
+<!--     <property name="dialect">org.hibernate.dialect.H2Dialect</property> -->
+    <property name="dialect">org.hibernate.dialect.MySQL5InnoDBDialect</property>
+    <property name="cache.provider_class">org.hibernate.cache.internal.NoCacheProvider</property>
+<!--     <property name="show_sql">true</property> -->
+    <property name="format_sql">true</property>
+<!--     <property name="hbm2ddl.auto">create-drop</property> -->
+
+<!-- 	<property name="hibernate.generate_statistics">true</property> -->
+<!-- 	<property name="hibernate.jdbc.batch_size">200</property> -->
+	<property name="hibernate.order_inserts">true</property>
+	<property name="hibernate.order_updates">true</property>
+	
+    <property name="cache.use_second_level_cache">true</property>
+    <property name="cache.region.factory_class">org.hibernate.cache.ehcache.EhCacheRegionFactory</property>
+    <property name="cache.use_query_cache">true</property>
+    <mapping class="com.luanvv.hibernate.entities.User"/>
+    <mapping class="com.luanvv.hibernate.entities.Stock"/>
+    <mapping class="com.luanvv.hibernate.entities.StockDailyRecord"/>
+  </session-factory>
+</hibernate-configuration>
